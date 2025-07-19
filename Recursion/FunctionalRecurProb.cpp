@@ -13,11 +13,27 @@ int fact(int n){
     return n * fact(n-1);
 }
 
+//Reverse an array
+void revArray(int arr[],int i,int n){
+    if(i >= n/2) return;
+    swap(arr[i],arr[n-i-1]);
+    revArray(arr,i+1,n);
+}
+
+
 int main(){
     int n;
     cin >> n;
     // cout << sum(n);
-    cout << fact(n);
+    //cout << fact(n);
+    int arr[n];
+    for(int i=0;i<n;i++){
+        cin >> arr[i];
+    }
+    revArray(arr,0,n);
+    for(int i=0;i<n;i++){
+        cout << arr[i] << " ";
+    }
     return 0;
 }
 
