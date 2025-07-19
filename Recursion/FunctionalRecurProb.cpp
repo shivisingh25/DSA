@@ -27,11 +27,18 @@ bool isPalindrome(int i, string &s){
     return isPalindrome(i+1,s);
 }
 
+//Find Nth Fibonacci Number
+int fib(int n){
+    if(n <= 1) return n;
+    int last = fib(n-1);
+    int secondLast = fib(n-2);
+    return last + secondLast;
+}
 
 
 int main(){
-    //int n;
-    //cin >> n;
+    int n;
+    cin >> n;
 
     // cout << sum(n);
     //cout << fact(n);
@@ -47,8 +54,10 @@ int main(){
     }
     */
 
-    string s="madam";
-    cout << isPalindrome(0,s);
+    //string s="madam";
+    //cout << isPalindrome(0,s);
+
+    cout << n << "th term of Fibonacci Series is: " << fib(n);
     return 0;
 }
 
