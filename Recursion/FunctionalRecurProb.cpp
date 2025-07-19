@@ -20,12 +20,23 @@ void revArray(int arr[],int i,int n){
     revArray(arr,i+1,n);
 }
 
+//Check if a string is palindrome
+bool isPalindrome(int i, string &s){
+    if(i >= s.size()/2) return true;
+    if(s[i] != s[s.size()-i-1]) return false;
+    return isPalindrome(i+1,s);
+}
+
+
 
 int main(){
-    int n;
-    cin >> n;
+    //int n;
+    //cin >> n;
+
     // cout << sum(n);
     //cout << fact(n);
+    
+    /*
     int arr[n];
     for(int i=0;i<n;i++){
         cin >> arr[i];
@@ -34,6 +45,10 @@ int main(){
     for(int i=0;i<n;i++){
         cout << arr[i] << " ";
     }
+    */
+
+    string s="madam";
+    cout << isPalindrome(0,s);
     return 0;
 }
 
