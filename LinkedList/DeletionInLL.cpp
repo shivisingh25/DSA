@@ -74,6 +74,29 @@ Node* removesK(Node* head,int key){
     return head;
 }
 
+Node* removesEle(Node* head,int el){
+    if(head == NULL) return head;
+    if(head->data == el){
+        Node* temp = head;
+        head = head->next;
+        free(temp);
+        return head;
+    }
+    
+    Node* temp = head;
+    Node* prev = NULL;
+    while(temp != NULL){
+        if(temp->data == el){
+            prev->next = prev->next->next;
+            free(temp);
+            break;
+        }
+        prev = temp;
+        temp = temp->next;
+    }
+    return head;
+}
+
 void print(Node* head){
     while(head != nullptr){
         cout << head->data << " ";
@@ -85,14 +108,19 @@ void print(Node* head){
 int main(){
     vector<int> arr = { 12, 5, 8, 7};
 
+    // int n;
+    // cout << "Enter the position you want to delete: "; 
+    // cin >> n;
+
     int n;
-    cout << "Enter the position you want to delete: "; 
+    cout << "Enter the element you want to delete: "; 
     cin >> n;
 
     Node* head = convertArr2LL(arr);
     //head = removesHead(head);
     // head = removesTail(head);
-    head = removesK(head , n);
+    // head = removesK(head , n);
+    head = removesEle(head , n);
     print(head);
     
     return 0;
