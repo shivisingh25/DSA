@@ -38,6 +38,18 @@ Node* removesHead(Node* head){
     return head;
 }
 
+Node* removesTail(Node* head){
+    if(head == nullptr || head->next == nullptr) return nullptr;
+    Node* temp = head;
+    while(temp->next->next != nullptr){
+        temp = temp->next;
+    }
+    free(temp->next);
+    temp->next = nullptr;
+
+    return head;
+}
+
 void print(Node* head){
     while(head != nullptr){
         cout << head->data << " ";
@@ -50,7 +62,8 @@ int main(){
     vector<int> arr = { 12, 5, 8, 7};
 
     Node* head = convertArr2LL(arr);
-    head = removesHead(head);
+    //head = removesHead(head);
+    head = removesTail(head);
     print(head);
     
     return 0;
